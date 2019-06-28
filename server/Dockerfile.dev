@@ -1,0 +1,8 @@
+FROM node:alpine
+WORKDIR "/app"
+ENV HTTP_PROXY=http://nl-userproxy-access.net.abnamro.com:8080
+ENV HTTPS_PROXY=http://nl-userproxy-access.net.abnamro.com:8080
+COPY ./package.json ./
+RUN npm install
+COPY . .
+CMD ["npm", "run", "dev"]
